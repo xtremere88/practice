@@ -32,25 +32,30 @@ public class MainActivity extends ActionBarActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.action_close) {
+            finish();
+
         }
 
         return super.onOptionsItemSelected(item);
     }
 
     public void startClick(View view) {
-        long i = Runtime.getRuntime().freeMemory();
-        TextView textView = (TextView)findViewById(R.id.infoTextView);
-        textView.setText("Количество свободной памяти: " + i + " bytes \n\n");
-        i = Runtime.getRuntime().totalMemory();
-        textView.append("Общее количество памяти " + i + " bytes \n\n");
-        i = Runtime.getRuntime().maxMemory();
-        textView.append("Максимальное количество памяти " + i + " bytes \n\n");
-        i = Runtime.getRuntime().availableProcessors();
-        textView.append("Количество доступных процессоров " + i + "\n\n");
-        System.gc();
-        textView.append("Количество свободной памяти: " + Runtime.getRuntime().freeMemory());
+        try {
+            long i = Runtime.getRuntime().freeMemory();
+            TextView textView = (TextView)findViewById(R.id.infoTextView);
+            textView.setText("Количество свободной памяти: " + i + " bytes \n\n");
+            i = Runtime.getRuntime().totalMemory();
+            textView.append("Общее количество памяти " + i + " bytes \n\n");
+            i = Runtime.getRuntime().maxMemory();
+            textView.append("Максимальное количество памяти " + i + " bytes \n\n");
+            i = Runtime.getRuntime().availableProcessors();
+            textView.append("Количество доступных процессоров " + i + "\n\n");
+            System.gc();
+            textView.append("Количество свободной памяти: " + Runtime.getRuntime().freeMemory());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 }
