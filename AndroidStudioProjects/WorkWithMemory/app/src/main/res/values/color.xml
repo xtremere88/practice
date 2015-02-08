@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="clr_main_text_color">#ff00de0b</color>
+    <color name="clr_main_background_color">#ff000000</color>
+    <color name="clr_main_button_color">#ff0a0a0a</color>
+</resources>
