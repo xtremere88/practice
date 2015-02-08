@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Монитор</string>
+    <string name="label_main_hello"><b>Нажмите на кнопку для отображения результатов</b></string>
+    <string name="action_close">Выход</string>
+    <string name="button_main_start">Старт!</string>
+    <string name="label_main_info">Результат будет здесь</string>
+
+</resources>
