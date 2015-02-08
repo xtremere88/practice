@@ -4,6 +4,8 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -35,5 +37,20 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void startClick(View view) {
+        long i = Runtime.getRuntime().freeMemory();
+        TextView textView = (TextView)findViewById(R.id.infoTextView);
+        textView.setText("Количество свободной памяти: " + i + " bytes \n\n");
+        i = Runtime.getRuntime().totalMemory();
+        textView.append("Общее количество памяти " + i + " bytes \n\n");
+        i = Runtime.getRuntime().maxMemory();
+        textView.append("Максимальное количество памяти " + i + " bytes \n\n");
+        i = Runtime.getRuntime().availableProcessors();
+        textView.append("Количество доступных процессоров " + i + "\n\n");
+        System.gc();
+        textView.append("Количество свободной памяти: " + Runtime.getRuntime().freeMemory());
+
     }
 }
