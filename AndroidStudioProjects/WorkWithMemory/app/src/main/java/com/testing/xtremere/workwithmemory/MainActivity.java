@@ -42,8 +42,12 @@ public class MainActivity extends ActionBarActivity {
 
     public void startClick(View view) {
         try {
+            String memoryConglomerator[]= new String[1001];
             long i = Runtime.getRuntime().freeMemory();
             TextView textView = (TextView)findViewById(R.id.infoTextView);
+            for (int count = 0; count<1000; count++){
+                memoryConglomerator[count]="+++++++++++++++++++++++++++++++++++++++++++++++++++++++";
+            }
             textView.setText("Количество свободной памяти: " + i + " bytes \n\n");
             i = Runtime.getRuntime().totalMemory();
             textView.append("Общее количество памяти " + i + " bytes \n\n");
@@ -53,6 +57,10 @@ public class MainActivity extends ActionBarActivity {
             textView.append("Количество доступных процессоров " + i + "\n\n");
             System.gc();
             textView.append("Количество свободной памяти: " + Runtime.getRuntime().freeMemory());
+            String memoryConglomerator2[]= new String[10001];
+            for (int count = 1; count<10000; count++){
+                memoryConglomerator2[count]="+++++++++++++++++++++++++++++++++++++++++++++++++++++++";
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
